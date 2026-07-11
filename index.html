@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJ'S Hotel & Suites | Luxury in Abuja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        
+        :root {
+            --gold: #d4af37;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .room-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .room-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .amenity-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .section-header {
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: #d4af37;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gallery-img {
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-white overflow-x-hidden">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center text-zinc-950 font-bold text-2xl">A</div>
+                <div>
+                    <span class="heading-font text-2xl font-semibold tracking-tight">AJ'S</span>
+                    <span class="text-amber-300 text-sm block -mt-1">Hotel & Suites</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase tracking-widest">
+                <a href="#about" class="nav-link hover:text-amber-400">About</a>
+                <a href="#rooms" class="nav-link hover:text-amber-400">Rooms</a>
+                <a href="#amenities" class="nav-link hover:text-amber-400">Amenities</a>
+                <a href="#gallery" class="nav-link hover:text-amber-400">Gallery</a>
+                <a href="#contact" class="nav-link hover:text-amber-400">Contact</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="tel:+2348051240140" 
+                   class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full text-sm font-medium transition-all">
+                    <i class="fas fa-phone"></i>
+                    <span>+234 805 124 0140</span>
+                </a>
+                <button onclick="document.getElementById('booking-modal').classList.remove('hidden')"
+                        class="bg-amber-400 hover:bg-amber-300 text-zinc-950 px-8 py-3 rounded-full font-semibold text-sm tracking-wider transition-all">
+                    BOOK NOW
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg h-screen flex items-center relative">
+        <div class="max-w-5xl mx-auto px-6 text-center pt-20">
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full mb-6 text-sm">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                DUTSE, ABUJA
+            </div>
+            
+            <h1 class="heading-font text-7xl md:text-8xl font-bold tracking-tighter leading-none mb-6">
+                LUXURY REDEFINED
+            </h1>
+            <p class="text-2xl md:text-3xl text-amber-100 max-w-2xl mx-auto mb-10">
+                Experience unparalleled elegance at AJ'S Hotel & Suites, Abuja
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="document.getElementById('rooms').scrollIntoView({ behavior: 'smooth' })" 
+                        class="bg-amber-400 hover:bg-amber-300 text-zinc-950 px-12 py-5 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 group">
+                    EXPLORE ROOMS
+                    <i class="fas fa-arrow-right group-active:translate-x-2 transition"></i>
+                </button>
+                <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" 
+                        class="border border-white/70 hover:bg-white/10 px-12 py-5 rounded-2xl font-medium text-lg transition">
+                    CONTACT US
+                </button>
+            </div>
+            
+            <div class="mt-20 flex justify-center gap-8 text-sm">
+                <div class="text-center">
+                    <div class="text-amber-400 text-3xl font-semibold">50+</div>
+                    <div class="text-zinc-400">Luxury Rooms</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-amber-400 text-3xl font-semibold">4.8</div>
+                    <div class="text-zinc-400">Guest Rating</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-amber-400 text-3xl font-semibold">300</div>
+                    <div class="text-zinc-400">Event Capacity</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 flex flex-col items-center text-xs tracking-widest">
+            <div class="mb-2">SCROLL TO DISCOVER</div>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <div class="sticky top-28">
+                        <span class="uppercase tracking-[3px] text-amber-400 text-sm font-medium">EST. 2018 • ABUJA</span>
+                        <h2 class="heading-font text-6xl font-semibold leading-none mt-4 mb-8">
+                            WHERE ELEGANCE MEETS WARMTH
+                        </h2>
+                        <p class="text-zinc-300 text-lg leading-relaxed">
+                            Nestled in the serene Dutse Sagwari Layout by Dunamis Church, AJ'S Hotel & Suites offers a sophisticated sanctuary for discerning travelers. 
+                            Our commitment to excellence is reflected in every detail, from our meticulously designed rooms to our world-class amenities.
+                        </p>
+                        <div class="mt-10 flex items-center gap-8">
+                            <div>
+                                <div class="text-4xl font-semibold text-amber-400">38</div>
+                                <div class="text-sm text-zinc-400">YEARS COMBINED HOSPITALITY EXPERTISE</div>
+                            </div>
+                            <div class="h-12 w-px bg-white/20"></div>
+                            <a href="#" class="group flex items-center gap-3 text-amber-400 hover:text-amber-300">
+                                <span class="font-medium">LEARN OUR STORY</span>
+                                <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="grid grid-cols-2 gap-6">
+                        <img src="https://picsum.photos/id/1015/800/1000" 
+                             alt="Hotel Exterior" 
+                             class="rounded-3xl w-full h-full object-cover aspect-[4/5] gallery-img">
+                        <div class="space-y-6">
+                            <img src="https://picsum.photos/id/106/800/500" 
+                                 alt="Lobby" 
+                                 class="rounded-3xl w-full object-cover gallery-img">
+                            <img src="https://picsum.photos/id/133/800/500" 
+                                 alt="Restaurant" 
+                                 class="rounded-3xl w-full object-cover gallery-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms -->
+    <section id="rooms" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="px-5 py-2 bg-amber-400/10 text-amber-400 rounded-full text-sm">OUR ACCOMMODATIONS</span>
+                <h2 class="heading-font text-6xl font-semibold mt-6">Rooms & Suites</h2>
+                <p class="max-w-md mx-auto mt-4 text-zinc-400">Indulge in refined comfort with our thoughtfully curated collection of rooms and suites</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Studio -->
+                <div class="room-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="h-80 bg-cover bg-center relative" 
+                         style="background-image: url('https://picsum.photos/id/201/800/600')">
+                        <div class="absolute top-6 right-6 bg-black/70 px-4 py-1 text-xs rounded-full">FROM ₦25,000</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-3xl heading-font">Studio Room</h3>
+                            <div class="text-right">
+                                <div class="text-amber-400 font-mono">₦25k</div>
+                                <div class="text-xs text-zinc-500">/ night</div>
+                            </div>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Cozy and stylish, perfect for solo travelers and couples seeking comfort and convenience.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">WiFi</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">AC</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">TV</span>
+                        </div>
+                        <button onclick="bookRoom('Studio Room', 25000)" 
+                                class="mt-8 w-full py-4 bg-white/5 hover:bg-amber-400 hover:text-zinc-950 border border-white/30 rounded-2xl text-sm font-semibold transition-all">
+                            BOOK THIS ROOM
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Standard -->
+                <div class="room-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="h-80 bg-cover bg-center relative" 
+                         style="background-image: url('https://picsum.photos/id/251/800/600')">
+                        <div class="absolute top-6 right-6 bg-black/70 px-4 py-1 text-xs rounded-full">FROM ₦30,000</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-3xl heading-font">Standard Room</h3>
+                            <div class="text-right">
+                                <div class="text-amber-400 font-mono">₦30k</div>
+                                <div class="text-xs text-zinc-500">/ night</div>
+                            </div>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Spacious and elegant with premium finishes for business or leisure stays.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">King Bed</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">Desk</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">Mini Bar</span>
+                        </div>
+                        <button onclick="bookRoom('Standard Room', 30000)" 
+                                class="mt-8 w-full py-4 bg-white/5 hover:bg-amber-400 hover:text-zinc-950 border border-white/30 rounded-2xl text-sm font-semibold transition-all">
+                            BOOK THIS ROOM
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Deluxe -->
+                <div class="room-card bg-zinc-900 rounded-3xl overflow-hidden group">
+                    <div class="h-80 bg-cover bg-center relative" 
+                         style="background-image: url('https://picsum.photos/id/316/800/600')">
+                        <div class="absolute top-6 right-6 bg-black/70 px-4 py-1 text-xs rounded-full">FROM ₦35,000</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-3xl heading-font">Deluxe Room</h3>
+                            <div class="text-right">
+                                <div class="text-amber-400 font-mono">₦35k</div>
+                                <div class="text-xs text-zinc-500">/ night</div>
+                            </div>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Luxurious retreat featuring premium amenities and stunning views.</p>
+                        <div class="flex flex-wrap gap-2 text-xs">
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">Balcony</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">Bath Tub</span>
+                            <span class="bg-zinc-800 px-3 py-1 rounded-full">Netflix</span>
+                        </div>
+                        <button onclick="bookRoom('Deluxe Room', 35000)" 
+                                class="mt-8 w-full py-4 bg-white/5 hover:bg-amber-400 hover:text-zinc-950 border border-white/30 rounded-2xl text-sm font-semibold transition-all">
+                            BOOK THIS ROOM
+                        </button>
+                    </div>
+                </div>
+
+                <!-- King Suite -->
+                <div class="room-card bg-zinc-900 rounded-3xl overflow-hidden group col-span-1 md:col-span-2 lg:col-span-1">
+                    <div class="h-80 bg-cover bg-center relative" 
+                         style="background-image: url('https://picsum.photos/id/1016/1200/600')">
+                        <div class="absolute top-6 right-6 bg-black/70 px-4 py-1 text-xs rounded-full">FROM ₦60,000</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-3xl heading-font">King Suite</h3>
+                            <div class="text-right">
+                                <div class="text-amber-400 font-mono">₦60k</div>
+                                <div class="text-xs text-zinc-500">/ night</div>
+                            </div>
+                        </div>
+                        <p class="text-zinc-400 text-sm leading-relaxed mb-6">Opulent two-room suite with separate living area and breathtaking city views.</p>
+                        <button onclick="bookRoom('King Suite', 60000)" 
+                                class="mt-8 w-full py-4 bg-white/5 hover:bg-amber-400 hover:text-zinc-950 border border-white/30 rounded-2xl text-sm font-semibold transition-all">
+                            BOOK THIS ROOM
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://ajshotel.com/rooms/" target="_blank"
+                   class="inline-flex items-center gap-3 text-amber-400 hover:text-amber-300 font-medium">
+                    VIEW ALL ROOMS & SUITES 
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities -->
+    <section id="amenities" class="py-24 bg-zinc-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="heading-font text-6xl font-semibold">World-Class Amenities</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-zinc-800/50 p-8 rounded-3xl group hover:bg-zinc-800 transition">
+                    <div class="w-16 h-16 bg-amber-400/10 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition">🏊</div>
+                    <h4 class="text-2xl font-semibold mb-3">Outdoor Swimming Pool</h4>
+                    <p class="text-zinc-400">Relax and unwind in our pristine pool surrounded by lush landscaping.</p>
+                </div>
+                
+                <div class="bg-zinc-800/50 p-8 rounded-3xl group hover:bg-zinc-800 transition">
+                    <div class="w-16 h-16 bg-amber-400/10 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition">🏋️</div>
+                    <h4 class="text-2xl font-semibold mb-3">State-of-the-Art Gym</h4>
+                    <p class="text-zinc-400">Modern fitness center equipped with premium cardio and strength equipment.</p>
+                </div>
+                
+                <div class="bg-zinc-800/50 p-8 rounded-3xl group hover:bg-zinc-800 transition">
+                    <div class="w-16 h-16 bg-amber-400/10 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition">🍽️</div>
+                    <h4 class="text-2xl font-semibold mb-3">Signature Restaurant</h4>
+                    <p class="text-zinc-400">Exquisite dining featuring local and international cuisine by our master chefs.</p>
+                </div>
+                
+                <div class="bg-zinc-800/50 p-8 rounded-3xl group hover:bg-zinc-800 transition">
+                    <div class="w-16 h-16 bg-amber-400/10 rounded-2xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition">🎉</div>
+                    <h4 class="text-2xl font-semibold mb-3">Event Hall</h4>
+                    <p class="text-zinc-400">300-capacity venue perfect for weddings, conferences, and celebrations.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-sm">
+                <div class="border border-white/10 py-6 rounded-2xl">24/7 Room Service</div>
+                <div class="bor
